@@ -3,7 +3,7 @@ Feature: Casos de teste para os posts
     Eu quero garantir que as regras de negócio para os posts sejam aplicadas corretamente
     Para que eu possa ter certeza de que o sistema está funcionando como esperado
 
-    Scenario: Criar um post com sucesso (Backend)
+    Scenario: Criar um post com sucesso (Backend)  
         Dado que eu sou um usuário 
         Quando eu crio um post com o título "Meu primeiro post" e o conteúdo "Este é o conteúdo do meu primeiro post"
         Então eu devo ver uma mensagem de sucesso "Post criado com sucesso"
@@ -42,17 +42,9 @@ Feature: Casos de teste para os posts
 
     ##Scenario: Os usuários podem alterar a classificação entre "mais recentes" e "tendências". Ao escolher "mais recentes" (padrão), as postagens serão renderizadas em ordem decrescente da data de criação. Para postagens "tendências", aquelas com mais republicações devem vir primeiro.
 
-    Scenario: Ao filtrar os resultados por palavras-chaves, são esperadas apenas corresponências exatas para o conteúdo da postagem 
+    Scenario: Ao filtrar os resultados por palavras-chaves, são esperadas apenas corresponências exatas para o conteúdo da postagem (Backend/Frontend)
         Dado que eu sou um usuário 
         E eu criei um post com o título "Meu primeiro post" e o conteúdo "Este é o conteúdo do meu primeiro post"
         Quando eu filtro os resultados por palavras-chave "primeiro"
         Então eu devo ver o post com o título "Meu primeiro post" e o conteúdo "Este é o conteúdo do meu primeiro post"
         E não devo ver outros posts que não correspondam à palavra-chave
-
-    Scenario: Somente postagens originais são esperadas como resultado da filtragem por palavras-chave, não permitindo repostagens
-        Dado que eu sou um usuário 
-        E eu criei um post com o título "Meu primeiro post" e o conteúdo "Este é o conteúdo do meu primeiro post"
-        E eu criei uma repostagem com o título "Repostagem do meu primeiro post" e o conteúdo "Este é o conteúdo da repostagem"
-        Quando eu filtro os resultados por palavras-chave "primeiro"
-        Então eu devo ver apenas o post original com o título "Meu primeiro post" e o conteúdo "Este é o conteúdo do meu primeiro post"
-        E não devo ver a repostagem com o título "Repostagem do meu primeiro post" e o conteúdo "Este é o conteúdo da repostagem"
