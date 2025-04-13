@@ -1,7 +1,7 @@
 
 import './commands';
-import './commands/test'
 import './commands/post'
+import './commands/repost'
 // import './commands/user';  PARA ADICIONAR OS COMMANDOS DA PASTA COMMANDS
 
 

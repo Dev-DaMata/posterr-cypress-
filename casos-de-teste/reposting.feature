@@ -15,6 +15,7 @@ Feature: Casos de teste para repostagens
         Quando eu tento criar uma nova repostagem com o título "Repostagem do meu sexto post" e o conteúdo "Este é o conteúdo da repostagem"
         Então eu devo ver uma mensagem de erro "Limite de repostagens diárias atingido"
         E a repostagem não deve ser salva no banco de dados
+        
     Scenario: Os usuários podem republicar postagens de outros usuários (como Retweet do Twitter), limitado a postagens originais (não permitido republicar seus proprios posts)
         Dado que eu sou um usuário 
         E eu vejo uma repostagem de outro usuário com o título "Repostagem do meu primeiro post" e o conteúdo "Este é o conteúdo da repostagem"
