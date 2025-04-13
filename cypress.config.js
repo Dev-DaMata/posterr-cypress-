@@ -16,16 +16,20 @@ module.exports = defineConfig({
     timestamp: 'mmddyyyy_HHMMss',
   },
   env: {
-    /*mongodb: {
-      uri: 'mongodb://localhost:27017',
-      database: 'hubDigigrow_LOCAL',
-      collection: 'user',
-    },*/
   },
 
   e2e: {
     setupNodeEvents(on, config) {
       // implement node event listeners here
+      on('task', {
+        // create a task - take 2 params, first being config, second is sql 
+        READFROMDB({ dbConfig, sql }) {
+          // create a client using the config argument object
+          const client = new pg.Pool(dbConfig)
+          // return the results from the sql 
+          return client.query(sql);
+        }
+      })
     },
     //baseUrl: 'http://localhost:3001/',
     specPattern: 'cypress/integration/**/*.{js,jsx,ts,tsx}',
